@@ -1,0 +1,13 @@
+streamlit
+langchain
+load_dotenv
+langchain_google_genai
+langchain_community
+faiss-cpu
+unstructured[all-docs] 
+pydantic 
+lxml 
+openai 
+chromadb 
+tiktoken 
+opencv-python
