@@ -224,7 +224,7 @@ qa_chain = LLMChain(
 )
 
 # Streamlit app
-st.title("Financial Accounting SOPs Q&A")
+st.title("SOP ChatBot")
 
 question = st.text_input("Enter your question:")
 if st.button("Get Answer"):
@@ -242,7 +242,8 @@ if st.button("Get Answer"):
                 relevant_tables.append(d.metadata['original_content'])
             elif d.metadata['type'] == 'image':
                 context += '[image]' + d.page_content
-                relevant_images.append(d.metadata['original_content'])
+                if context not in relevant_images:
+                    relevant_images.append(d.metadata['original_content'])
 
         # Run the question-answering chain
         result = qa_chain.run({'context': context, 'question': question})
