@@ -232,12 +232,14 @@ if st.button("Get Answer"):
         relevant_docs = db.similarity_search(question)
         context = ""
         relevant_images = []
+        relevant_tables = []
 
         for d in relevant_docs:
             if d.metadata['type'] == 'text':
                 context += '[text]' + d.metadata['original_content']
             elif d.metadata['type'] == 'table':
                 context += '[table]' + d.metadata['original_content']
+                relevant_tables.append(d.metadata['original_content'])
             elif d.metadata['type'] == 'image':
                 context += '[image]' + d.page_content
                 relevant_images.append(d.metadata['original_content'])
@@ -257,5 +259,7 @@ if st.button("Get Answer"):
             else:
                 # Assume base64 encoded
                 st.image(base64.b64decode(image))
+        for table in relevant_tables:
+            st.table(table)
     else:
         st.error("Please enter a question.")
