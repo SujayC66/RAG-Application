@@ -224,7 +224,7 @@ qa_chain = LLMChain(
 )
 
 # Streamlit app
-st.title("SOP ChatBot")
+st.title("SOP Assistant")
 
 question = st.text_input("Enter your question:")
 if st.button("Get Answer"):
