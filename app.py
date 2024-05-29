@@ -260,6 +260,6 @@ if st.button("Get Answer"):
                 # Assume base64 encoded
                 st.image(base64.b64decode(image))
         for table in relevant_tables:
-            st.table(table)
+            st.write(table)
     else:
         st.error("Please enter a question.")
