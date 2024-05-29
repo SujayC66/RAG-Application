@@ -254,6 +254,7 @@ if st.button("Get Answer"):
         st.write("Answer:")
         st.markdown(result)
 
+        st.write('Relevant Images: ')
         for image in relevant_images:
             if image.startswith('http'):
                 st.image(image)
