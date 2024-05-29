@@ -242,7 +242,7 @@ if st.button("Get Answer"):
                 relevant_tables.append(d.metadata['original_content'])
             elif d.metadata['type'] == 'image':
                 context += '[image]' + d.page_content
-                if context not in relevant_images:
+                if d.metadata['original_content'] not in relevant_images:
                     relevant_images.append(d.metadata['original_content'])
 
         # Run the question-answering chain
