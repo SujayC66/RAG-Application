@@ -261,6 +261,7 @@ if st.button("Get Answer"):
             else:
                 # Assume base64 encoded
                 st.image(base64.b64decode(image))
+        
         for table in relevant_tables:
             st.write(table)
     else:
